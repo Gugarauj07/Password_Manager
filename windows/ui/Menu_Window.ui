@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Menu_window</class>
- <widget class="QMainWindow" name="Menu_window">
+ <class>menu_window</class>
+ <widget class="QMainWindow" name="menu_window">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>250</width>
-    <height>150</height>
+    <width>240</width>
+    <height>119</height>
    </rect>
   </property>
   <property name="font">
@@ -22,65 +22,41 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(44, 44, 44);
-color: rgb(0, 170, 255);</string>
+color: rgb(255, 105, 182);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>231</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(0, 170, 255);
-color: rgb(44, 44, 44);</string>
-       </property>
-       <property name="text">
-        <string>LOGIN</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(0, 170, 255);
-color: rgb(44, 44, 44);</string>
-       </property>
-       <property name="text">
-        <string>REGISTER</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>-10</y>
-      <width>229</width>
-      <height>59</height>
+      <y>0</y>
+      <width>241</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>19</pointsize>
-      <strikeout>false</strikeout>
-      <stylestrategy>PreferDefault</stylestrategy>
-      <kerning>true</kerning>
+      <pointsize>20</pointsize>
      </font>
     </property>
     <property name="text">
      <string>Password Manager</string>
     </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Please, choose an option from the menu!</string>
     </property>
    </widget>
   </widget>
@@ -89,12 +65,41 @@ color: rgb(44, 44, 44);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>250</width>
+     <width>240</width>
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMENU">
+    <property name="title">
+     <string>MENU</string>
+    </property>
+    <addaction name="actionVisualizar_Senhas"/>
+    <addaction name="actionGerar_senhas"/>
+    <addaction name="actionAdicionar_senhas"/>
+   </widget>
+   <addaction name="menuMENU"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionVisualizar_Senhas">
+   <property name="text">
+    <string>Visualizar senhas</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionGerar_senhas">
+   <property name="text">
+    <string>Gerador de senhas</string>
+   </property>
+  </action>
+  <action name="actionAdicionar_senhas">
+   <property name="text">
+    <string>Adicionar senhas</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
