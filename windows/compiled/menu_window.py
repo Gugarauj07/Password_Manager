@@ -9,13 +9,13 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(432, 291)
-        MainWindow.setStyleSheet("background-color: rgb(76, 76, 76);\n"
+class Ui_menu_window(object):
+    def setupUi(self, menu_window):
+        menu_window.setObjectName("menu_window")
+        menu_window.resize(432, 291)
+        menu_window.setStyleSheet("background-color: rgb(42, 42, 42);\n"
 "color: rgb(255, 105, 182);")
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget = QtWidgets.QWidget(menu_window)
         self.centralwidget.setObjectName("centralwidget")
         self.Menu = QtWidgets.QTabWidget(self.centralwidget)
         self.Menu.setGeometry(QtCore.QRect(0, 0, 431, 331))
@@ -98,40 +98,40 @@ class Ui_MainWindow(object):
         self.label_7.setStyleSheet("color: rgb(255, 255, 255);")
         self.label_7.setObjectName("label_7")
         self.Menu.addTab(self.tab, "")
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        menu_window.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(menu_window)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 432, 22))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        menu_window.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(menu_window)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        menu_window.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(menu_window)
         self.Menu.setCurrentIndex(1)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(menu_window)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, menu_window):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.Menu.setTabText(self.Menu.indexOf(self.Visualize), _translate("MainWindow", "Visualize"))
-        self.label.setText(_translate("MainWindow", "Website:"))
-        self.label_2.setText(_translate("MainWindow", "E-mail:"))
-        self.label_3.setText(_translate("MainWindow", "Password:"))
-        self.label_4.setText(_translate("MainWindow", "Username:"))
-        self.pushButton.setText(_translate("MainWindow", "Submit"))
-        self.Menu.setTabText(self.Menu.indexOf(self.Add), _translate("MainWindow", "Add"))
-        self.label_5.setText(_translate("MainWindow", "Press the button to generate a random password!"))
-        self.pushButton_2.setText(_translate("MainWindow", "Generate!"))
-        self.label_7.setText(_translate("MainWindow", "Your password is: "))
-        self.Menu.setTabText(self.Menu.indexOf(self.tab), _translate("MainWindow", "Generate"))
+        menu_window.setWindowTitle(_translate("menu_window", "MainWindow"))
+        self.Menu.setTabText(self.Menu.indexOf(self.Visualize), _translate("menu_window", "Visualize"))
+        self.label.setText(_translate("menu_window", "Website:"))
+        self.label_2.setText(_translate("menu_window", "E-mail:"))
+        self.label_3.setText(_translate("menu_window", "Password:"))
+        self.label_4.setText(_translate("menu_window", "Username:"))
+        self.pushButton.setText(_translate("menu_window", "Submit"))
+        self.Menu.setTabText(self.Menu.indexOf(self.Add), _translate("menu_window", "Add"))
+        self.label_5.setText(_translate("menu_window", "Press the button to generate a random password!"))
+        self.pushButton_2.setText(_translate("menu_window", "Generate!"))
+        self.label_7.setText(_translate("menu_window", "Your password is: "))
+        self.Menu.setTabText(self.Menu.indexOf(self.tab), _translate("menu_window", "Generate"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    menu_window = QtWidgets.QMainWindow()
+    ui = Ui_menu_window()
+    ui.setupUi(menu_window)
+    menu_window.show()
     sys.exit(app.exec())
