@@ -1,63 +1,228 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>menu_window</class>
- <widget class="QMainWindow" name="menu_window">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>240</width>
-    <height>119</height>
+    <width>432</width>
+    <height>291</height>
    </rect>
-  </property>
-  <property name="font">
-   <font>
-    <pointsize>20</pointsize>
-    <italic>false</italic>
-    <bold>false</bold>
-   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(44, 44, 44);
+   <string notr="true">background-color: rgb(76, 76, 76);
 color: rgb(255, 105, 182);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QTabWidget" name="Menu">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>0</y>
-      <width>241</width>
-      <height>61</height>
+      <width>431</width>
+      <height>331</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>20</pointsize>
-     </font>
+    <property name="currentIndex">
+     <number>1</number>
     </property>
-    <property name="text">
-     <string>Password Manager</string>
+    <property name="documentMode">
+     <bool>true</bool>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>221</width>
-      <height>31</height>
-     </rect>
+    <property name="tabsClosable">
+     <bool>false</bool>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
+    <property name="movable">
+     <bool>true</bool>
     </property>
-    <property name="text">
-     <string>Please, choose an option from the menu!</string>
+    <property name="tabBarAutoHide">
+     <bool>false</bool>
     </property>
+    <widget class="QWidget" name="Visualize">
+     <attribute name="title">
+      <string>Visualize</string>
+     </attribute>
+     <widget class="QTableView" name="tableView">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>431</width>
+        <height>241</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Add">
+     <attribute name="title">
+      <string>Add</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>411</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="lineEdit_3">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(66, 66, 66);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEdit_2">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(66, 66, 66);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Website:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>E-mail:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Password:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(66, 66, 66);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="lineEdit_4">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(66, 66, 66);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Username:</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>220</y>
+        <width>345</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Submit</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Generate</string>
+     </attribute>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>411</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Press the button to generate a random password!</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>50</y>
+        <width>345</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Generate!</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>411</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Your password is: </string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -65,41 +230,12 @@ color: rgb(255, 105, 182);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>240</width>
+     <width>432</width>
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuMENU">
-    <property name="title">
-     <string>MENU</string>
-    </property>
-    <addaction name="actionVisualizar_Senhas"/>
-    <addaction name="actionGerar_senhas"/>
-    <addaction name="actionAdicionar_senhas"/>
-   </widget>
-   <addaction name="menuMENU"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionVisualizar_Senhas">
-   <property name="text">
-    <string>Visualizar senhas</string>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-  </action>
-  <action name="actionGerar_senhas">
-   <property name="text">
-    <string>Gerador de senhas</string>
-   </property>
-  </action>
-  <action name="actionAdicionar_senhas">
-   <property name="text">
-    <string>Adicionar senhas</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>

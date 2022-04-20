@@ -1,5 +1,5 @@
 from windows.compiled.login_window import Ui_Login_Window
-from windows.compiled.Menu_Window import Ui_menu_window
+from forms.menu import *
 from PyQt6 import QtCore, QtGui, QtWidgets
 from conecta import *
 
@@ -39,10 +39,9 @@ class Login(QtWidgets.QMainWindow, Ui_Login_Window):
     def Login(self):
         self.username = self.lineEdit.text()
         self.password = self.lineEdit_2.text()
-        self.window = QtWidgets.QMainWindow()
 
-        self.ui = Ui_menu_window()
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Menu()
         self.ui.setupUi(self.window)
         self.hide()
         self.window.show()
-
