@@ -7,15 +7,15 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
     def __init__(self, parent=None):
         super(Menu, self).__init__(parent)
         menu_window = QtWidgets.QMainWindow()
-        ui = Ui_menu_window()
-        ui.setupUi(menu_window)
+        self.ui = Ui_menu_window()
+        self.ui.setupUi(menu_window)
         menu_window.show()
 
-        # self.connect_buttons()
+        self.connect_buttons()
 
     def connect_buttons(self):
-        self.addButton.clicked.connect(self.adicionar)
-        self.generateButton.clicked.connect(self.generate)
+        self.ui.addButton.clicked.connect(self.adicionar)
+        self.ui.generateButton.clicked.connect(self.generate)
 
     def adicionar(self):
         self.website = self.lineEdit.text()
@@ -37,7 +37,10 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
 
                 comando_SQL = "INSERT INTO pessoas (website, email, password, username) VALUES (%s,%s,%s,%s)"
                 cursor.execute(comando_SQL, (str(self.website), str(self.email), str(self.password), str(self.username)))
-                # dados_lidos = cursor.fetchall()
+        self.lineEdit.setText("")
+        self.lineEdit_2.setText("")
+        self.lineEdit_3.setText("")
+        self.lineEdit_4.setText("")
 
     def vizualisar(self):
         pass
@@ -62,4 +65,4 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
         #     pass
 
     def generate(self):
-        pass
+        print('generate')

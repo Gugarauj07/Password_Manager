@@ -57,5 +57,5 @@ class Login(QtWidgets.QMainWindow, Ui_Login_Window):
             self.window = QtWidgets.QMainWindow()
             self.ui = Menu()
             self.ui.setupUi(self.window)
-            # self.hide()
+            self.hide()
             self.window.show()
