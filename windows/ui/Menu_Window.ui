@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>menu_window</class>
+ <widget class="QMainWindow" name="menu_window">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,11 +14,11 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(76, 76, 76);
+   <string notr="true">background-color: rgb(42, 42, 42);
 color: rgb(255, 105, 182);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="Menu">
+   <widget class="QTabWidget" name="Menu_widget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -28,7 +28,7 @@ color: rgb(255, 105, 182);</string>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="documentMode">
      <bool>true</bool>
@@ -141,7 +141,7 @@ color: rgb(255, 105, 182);</string>
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="addButton">
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -159,7 +159,7 @@ color: rgb(0, 0, 0);</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab">
+    <widget class="QWidget" name="gene">
      <attribute name="title">
       <string>Generate</string>
      </attribute>
@@ -184,7 +184,7 @@ color: rgb(0, 0, 0);</string>
        <string>Press the button to generate a random password!</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="generateButton">
       <property name="geometry">
        <rect>
         <x>50</x>

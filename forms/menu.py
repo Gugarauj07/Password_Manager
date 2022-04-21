@@ -11,21 +11,36 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
         ui.setupUi(menu_window)
         menu_window.show()
 
-        self.connect_buttons()
+        # self.connect_buttons()
 
     def connect_buttons(self):
-        pass
+        self.addButton.clicked.connect(self.adicionar)
+        self.generateButton.clicked.connect(self.generate)
 
     def adicionar(self):
-        print('oi')
+        self.website = self.lineEdit.text()
+        self.email = self.lineEdit_2.text()
+        self.password = self.lineEdit_3.text()
+        self.username = self.lineEdit_4.text()
+
+        with conecta() as conexao:
+            with conexao.cursor() as cursor:
+                create_table = "CREATE TABLE IF NOT EXISTS pessoas(" \
+                               "id INT AUTO_INCREMENT NOT NULL," \
+                               "website VARCHAR(255) NOT NULL," \
+                               "email VARCHAR(255) NOT NULL," \
+                               "password VARCHAR(255) NOT NULL," \
+                               "username VARCHAR(255)," \
+                               "PRIMARY KEY(id)" \
+                               ");"
+                cursor.execute(create_table)
+
+                comando_SQL = "INSERT INTO pessoas (website, email, password, username) VALUES (%s,%s,%s,%s)"
+                cursor.execute(comando_SQL, (str(self.website), str(self.email), str(self.password), str(self.username)))
+                # dados_lidos = cursor.fetchall()
 
     def vizualisar(self):
         pass
-        # self.window = QtWidgets.QMainWindow()
-        # self.ui.setupUi(self.window)
-        # self.window.show()
-        # self.hide()
-        #
         # with conecta() as conexao:
         #     with conexao.cursor() as cursor:
         #         comando_SQL = "SELECT * FROM login"
@@ -45,3 +60,6 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
         #         self.ui.tableWidget.setItem(i, 2, QtWidgets.QTableWidgetItem(str(dados_lidos[i]['master_password'])))
         # except:
         #     pass
+
+    def generate(self):
+        pass
