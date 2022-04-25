@@ -54,8 +54,6 @@ class Login(QtWidgets.QMainWindow, Ui_Login_Window):
             self.senhas.append(dados_lidos[i]['master_password'])
 
         if self.password in self.senhas and self.username in self.nomes:
-            self.window = QtWidgets.QMainWindow()
-            self.ui = Menu()
-            self.ui.setupUi(self.window)
+            self.window = Menu()
             self.hide()
             self.window.show()

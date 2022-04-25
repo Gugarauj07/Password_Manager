@@ -6,16 +6,13 @@ from conecta import *
 class Menu(QtWidgets.QMainWindow, Ui_menu_window):
     def __init__(self, parent=None):
         super(Menu, self).__init__(parent)
-        menu_window = QtWidgets.QMainWindow()
-        self.ui = Ui_menu_window()
-        self.ui.setupUi(menu_window)
-        menu_window.show()
+        self.setupUi(self)
 
         self.connect_buttons()
 
     def connect_buttons(self):
-        self.ui.addButton.clicked.connect(self.adicionar)
-        self.ui.generateButton.clicked.connect(self.generate)
+        self.addButton.clicked.connect(self.adicionar)
+        self.generateButton.clicked.connect(self.generate)
 
     def adicionar(self):
         self.website = self.lineEdit.text()
