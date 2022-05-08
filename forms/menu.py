@@ -50,12 +50,10 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
     def visualizar(self):
         with conecta() as conexao:
             with conexao.cursor() as cursor:
-                comando_SQL = "SELECT website, email, password, username FROM menu JOIN login ON login.id = menu.login_id;"
+                comando_SQL = "SELECT website, email, password, username FROM menu JOIN login ON login.id = " \
+                              "menu.login_id; "
                 cursor.execute(comando_SQL)
                 dados_lidos = cursor.fetchall()
-
-                for k, v in dados_lidos[0].items():
-                    print(k, v)
 
         self.tableWidget.setRowCount(len(dados_lidos))
         self.tableWidget.setColumnCount(4)
@@ -77,5 +75,5 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
 
         password_characters = string.ascii_letters + string.digits + string.punctuation
         password = ''.join(secrets.choice(password_characters) for i in range(comprimento))
-
+        print(password)
         self.label_7.setText(f"Your password is: {password}")

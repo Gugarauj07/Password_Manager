@@ -45,7 +45,6 @@ class Login(QtWidgets.QMainWindow, Ui_Login_Window):
                 comando_SQL = "SELECT id, master_username, master_password FROM login;"
                 cursor.execute(comando_SQL)
                 dados_lidos = cursor.fetchall()
-                print(dados_lidos)
 
         for i in range(len(dados_lidos)):
             self.login_id = dados_lidos[i]['id']
