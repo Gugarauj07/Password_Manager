@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file '.\windows\ui\menu_window.ui'
+# Form implementation generated from reading ui file 'windows/ui/menu_window.ui'
 #
 # Created by: PyQt6 UI code generator 6.1.0
 #
@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_menu_window(object):
     def setupUi(self, menu_window):
         menu_window.setObjectName("menu_window")
-        menu_window.resize(432, 291)
+        menu_window.resize(430, 293)
         menu_window.setStyleSheet("background-color: rgb(42, 42, 42);\n"
 "color: rgb(255, 105, 182);")
         self.centralwidget = QtWidgets.QWidget(menu_window)
@@ -26,9 +26,11 @@ class Ui_menu_window(object):
         self.Menu_widget.setObjectName("Menu_widget")
         self.Visualize = QtWidgets.QWidget()
         self.Visualize.setObjectName("Visualize")
-        self.tableView = QtWidgets.QTableView(self.Visualize)
-        self.tableView.setGeometry(QtCore.QRect(0, 0, 431, 241))
-        self.tableView.setObjectName("tableView")
+        self.tableWidget = QtWidgets.QTableWidget(self.Visualize)
+        self.tableWidget.setGeometry(QtCore.QRect(0, 0, 431, 251))
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
         self.Menu_widget.addTab(self.Visualize, "")
         self.Add = QtWidgets.QWidget()
         self.Add.setObjectName("Add")
@@ -100,7 +102,7 @@ class Ui_menu_window(object):
         self.Menu_widget.addTab(self.gene, "")
         menu_window.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(menu_window)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 432, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 430, 22))
         self.menubar.setObjectName("menubar")
         menu_window.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(menu_window)

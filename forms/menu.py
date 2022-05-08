@@ -8,6 +8,7 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
         super(Menu, self).__init__(parent)
         self.setupUi(self)
         self.connect_buttons()
+        self.visualizar()
 
     def connect_buttons(self):
         self.addButton.clicked.connect(self.adicionar)
@@ -37,34 +38,36 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
 
                 comando_SQL = "INSERT INTO menu(website, email, password, username, login_id) VALUES (%s,%s,%s,%s,%s);"
                 cursor.execute(comando_SQL, (str(self.website), str(self.email), str(self.password), str(self.username),
-                                             self.login.login_id))
+                                             int(self.login.login_id)))
                 conexao.commit()
+
         self.lineEdit.setText("")
         self.lineEdit_2.setText("")
         self.lineEdit_3.setText("")
         self.lineEdit_4.setText("")
 
     def visualizar(self):
-        pass
-        # with conecta() as conexao:
-        #     with conexao.cursor() as cursor:
-        #         comando_SQL = "SELECT * FROM login"
-        #         cursor.execute(comando_SQL)
-        #         dados_lidos = cursor.fetchall()
-        #
-        #         for k, v in dados_lidos[0].items():
-        #             print(k, v)
-        #
-        # self.ui.tableWidget.setRowCount(len(dados_lidos))
-        # self.ui.tableWidget.setColumnCount(3)
-        #
-        # try:
-        #     for i in range(0, len(dados_lidos)):
-        #         self.ui.tableWidget.setItem(i, 0, QtWidgets.QTableWidgetItem(str(dados_lidos[i]['id'])))
-        #         self.ui.tableWidget.setItem(i, 1, QtWidgets.QTableWidgetItem(str(dados_lidos[i]['username'])))
-        #         self.ui.tableWidget.setItem(i, 2, QtWidgets.QTableWidgetItem(str(dados_lidos[i]['master_password'])))
-        # except:
-        #     pass
+        with conecta() as conexao:
+            with conexao.cursor() as cursor:
+                comando_SQL = "SELECT website, email, password, username FROM menu" \
+                              "JOIN login ON login.id = menu.login_id;"
+                cursor.execute(comando_SQL)
+                dados_lidos = cursor.fetchall()
+
+                for k, v in dados_lidos[0].items():
+                    print(k, v)
+
+        self.tableWidget.setRowCount(len(dados_lidos))
+        self.tableWidget.setColumnCount(3)
+
+        try:
+            for i in range(0, len(dados_lidos)):
+                self.tableWidget.setItem(i, 0, QtWidgets.QTableWidgetItem(str(dados_lidos[i]['website'])))
+                self.tableWidget.setItem(i, 1, QtWidgets.QTableWidgetItem(str(dados_lidos[i]['email'])))
+                self.tableWidget.setItem(i, 2, QtWidgets.QTableWidgetItem(str(dados_lidos[i]['password'])))
+                self.tableWidget.setItem(i, 3, QtWidgets.QTableWidgetItem(str(dados_lidos[i]['username'])))
+        except:
+            pass
 
     def generate(self):
         print('generate')
