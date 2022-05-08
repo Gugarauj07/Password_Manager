@@ -15,7 +15,7 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
 
     def adicionar(self):
         from forms.login import Login
-        self.login_oi = Login()
+        self.login = Login()
         self.website = self.lineEdit.text()
         self.email = self.lineEdit_2.text()
         self.password = self.lineEdit_3.text()
@@ -35,17 +35,16 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
                                ");"
                 cursor.execute(create_table)
 
-                comando_SQL = "INSERT INTO menu (website, email, password, username, login_id) VALUES (%s,%s,%s," \
-                              "%s,%s) "
+                comando_SQL = "INSERT INTO menu(website, email, password, username, login_id) VALUES (%s,%s,%s,%s,%s);"
                 cursor.execute(comando_SQL, (str(self.website), str(self.email), str(self.password), str(self.username),
-                                             str(self.login_oi.login_id)))
-        #         f"(SELECT id FROM customers WHERE login.username = '{self.}')"
+                                             self.login.login_id))
+                conexao.commit()
         self.lineEdit.setText("")
         self.lineEdit_2.setText("")
         self.lineEdit_3.setText("")
         self.lineEdit_4.setText("")
 
-    def vizualisar(self):
+    def visualizar(self):
         pass
         # with conecta() as conexao:
         #     with conexao.cursor() as cursor:

@@ -6,7 +6,7 @@ from conecta import *
 class Login(QtWidgets.QMainWindow, Ui_Login_Window):
     def __init__(self, parent=None):
         super(Login, self).__init__(parent)
-        self.login_id = None
+        self.login_id = 1
         self.setupUi(self)
 
         self.connect_buttons()
