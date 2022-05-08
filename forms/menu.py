@@ -14,6 +14,8 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
         self.generateButton.clicked.connect(self.generate)
 
     def adicionar(self):
+        from forms.login import Login
+        self.login_oi = Login()
         self.website = self.lineEdit.text()
         self.email = self.lineEdit_2.text()
         self.password = self.lineEdit_3.text()
@@ -21,21 +23,23 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
 
         with conecta() as conexao:
             with conexao.cursor() as cursor:
-                create_table = "CREATE TABLE IF NOT EXISTS pessoas(" \
+                create_table = "CREATE TABLE IF NOT EXISTS menu(" \
                                "id INT AUTO_INCREMENT NOT NULL," \
                                "website VARCHAR(255) NOT NULL," \
                                "email VARCHAR(255) NOT NULL," \
                                "password VARCHAR(255) NOT NULL," \
                                "username VARCHAR(255)," \
                                "login_id INT NOT NULL," \
-                               "PRIMARY KEY(id)" \
+                               "PRIMARY KEY(id)," \
                                "FOREIGN KEY(login_id) REFERENCES login(id)" \
                                ");"
                 cursor.execute(create_table)
 
-                comando_SQL = "INSERT INTO pessoas (website, email, password, username, login_id) VALUES (%s,%s,%s," \
+                comando_SQL = "INSERT INTO menu (website, email, password, username, login_id) VALUES (%s,%s,%s," \
                               "%s,%s) "
-                cursor.execute(comando_SQL, (str(self.website), str(self.email), str(self.password), str(self.username)))
+                cursor.execute(comando_SQL, (str(self.website), str(self.email), str(self.password), str(self.username),
+                                             str(self.login_oi.login_id)))
+        #         f"(SELECT id FROM customers WHERE login.username = '{self.}')"
         self.lineEdit.setText("")
         self.lineEdit_2.setText("")
         self.lineEdit_3.setText("")
