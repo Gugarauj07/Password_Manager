@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>432</width>
-    <height>291</height>
+    <width>430</width>
+    <height>293</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,13 +46,13 @@ color: rgb(255, 105, 182);</string>
      <attribute name="title">
       <string>Visualize</string>
      </attribute>
-     <widget class="QTableView" name="tableView">
+     <widget class="QTableWidget" name="tableWidget">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
         <width>431</width>
-        <height>241</height>
+        <height>251</height>
        </rect>
       </property>
      </widget>
@@ -230,7 +230,7 @@ color: rgb(0, 0, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>432</width>
+     <width>430</width>
      <height>22</height>
     </rect>
    </property>

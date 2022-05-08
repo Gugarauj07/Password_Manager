@@ -39,8 +39,6 @@ class Login(QtWidgets.QMainWindow, Ui_Login_Window):
     def Login(self):
         self.username = self.lineEdit.text()
         self.password = self.lineEdit_2.text()
-        self.nomes = []
-        self.senhas = []
 
         with conecta() as conexao:
             with conexao.cursor() as cursor:

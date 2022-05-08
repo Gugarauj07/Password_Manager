@@ -45,12 +45,12 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
         self.lineEdit_2.setText("")
         self.lineEdit_3.setText("")
         self.lineEdit_4.setText("")
+        self.visualizar()
 
     def visualizar(self):
         with conecta() as conexao:
             with conexao.cursor() as cursor:
-                comando_SQL = "SELECT website, email, password, username FROM menu" \
-                              "JOIN login ON login.id = menu.login_id;"
+                comando_SQL = "SELECT website, email, password, username FROM menu JOIN login ON login.id = menu.login_id;"
                 cursor.execute(comando_SQL)
                 dados_lidos = cursor.fetchall()
 
@@ -58,7 +58,7 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
                     print(k, v)
 
         self.tableWidget.setRowCount(len(dados_lidos))
-        self.tableWidget.setColumnCount(3)
+        self.tableWidget.setColumnCount(4)
 
         try:
             for i in range(0, len(dados_lidos)):
