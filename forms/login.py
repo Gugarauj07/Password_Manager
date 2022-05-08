@@ -1,5 +1,5 @@
 from windows.compiled.login_window import Ui_Login_Window
-from forms.menu import *
+from forms.menu import Menu
 from PyQt6 import QtCore, QtGui, QtWidgets
 from conecta import *
 
@@ -27,6 +27,7 @@ class Login(QtWidgets.QMainWindow, Ui_Login_Window):
                                "username VARCHAR(50) NOT NULL," \
                                "master_password VARCHAR(255) NOT NULL," \
                                "PRIMARY KEY(id)" \
+                               "UNIQUE(username)" \
                                ");"
                 cursor.execute(create_table)
 
@@ -50,10 +51,11 @@ class Login(QtWidgets.QMainWindow, Ui_Login_Window):
                 print(dados_lidos)
 
         for i in range(len(dados_lidos)):
-            self.nomes.append(dados_lidos[i]['username'])
-            self.senhas.append(dados_lidos[i]['master_password'])
+            self.nome = dados_lidos[i]['username']
+            self.senha = dados_lidos[i]['master_password']
 
-        if self.password in self.senhas and self.username in self.nomes:
-            self.window = Menu()
-            self.hide()
-            self.window.show()
+            if self.password == self.senha and self.username == self.nome:
+                self.window = Menu()
+                self.hide()
+                self.window.show()
+                break

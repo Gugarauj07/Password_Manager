@@ -7,7 +7,6 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
     def __init__(self, parent=None):
         super(Menu, self).__init__(parent)
         self.setupUi(self)
-
         self.connect_buttons()
 
     def connect_buttons(self):
@@ -28,11 +27,14 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
                                "email VARCHAR(255) NOT NULL," \
                                "password VARCHAR(255) NOT NULL," \
                                "username VARCHAR(255)," \
+                               "login_id INT NOT NULL," \
                                "PRIMARY KEY(id)" \
+                               "FOREIGN KEY(login_id) REFERENCES login(id)" \
                                ");"
                 cursor.execute(create_table)
 
-                comando_SQL = "INSERT INTO pessoas (website, email, password, username) VALUES (%s,%s,%s,%s)"
+                comando_SQL = "INSERT INTO pessoas (website, email, password, username, login_id) VALUES (%s,%s,%s," \
+                              "%s,%s) "
                 cursor.execute(comando_SQL, (str(self.website), str(self.email), str(self.password), str(self.username)))
         self.lineEdit.setText("")
         self.lineEdit_2.setText("")
