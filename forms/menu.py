@@ -70,4 +70,12 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
             pass
 
     def generate(self):
-        print('generate')
+        import secrets
+        import string
+
+        comprimento = 8
+
+        password_characters = string.ascii_letters + string.digits + string.punctuation
+        password = ''.join(secrets.choice(password_characters) for i in range(comprimento))
+
+        self.label_7.setText(f"Your password is: {password}")
