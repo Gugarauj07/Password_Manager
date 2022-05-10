@@ -7,11 +7,9 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
     def __init__(self, parent=None, login=None):
         super(Menu, self).__init__(parent)
         self.setupUi(self)
+        self.login = login
         self.connect_buttons()
         self.visualizar()
-        from forms.login import Login
-        self.login = login
-
 
     def connect_buttons(self):
         self.addButton.clicked.connect(self.adicionar)
@@ -53,13 +51,13 @@ class Menu(QtWidgets.QMainWindow, Ui_menu_window):
     def visualizar(self):
         with conecta() as conexao:
             with conexao.cursor() as cursor:
-                comando_SQL = "SELECT website, email, password, username FROM menu JOIN login ON login.id = " \
-                              "menu.login_id; "
+                comando_SQL = f"SELECT website, email, password, username FROM menu WHERE menu.login_id = {self.login.login_id}; "
                 cursor.execute(comando_SQL)
                 dados_lidos = cursor.fetchall()
 
         self.tableWidget.setRowCount(len(dados_lidos))
         self.tableWidget.setColumnCount(4)
+        self.tableWidget.setHorizontalHeaderLabels(['Website', 'Email', 'Password', 'Username'])
 
         try:
             for i in range(0, len(dados_lidos)):
