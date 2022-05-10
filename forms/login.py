@@ -6,7 +6,7 @@ from conecta import *
 class Login(QtWidgets.QMainWindow, Ui_Login_Window):
     def __init__(self, parent=None):
         super(Login, self).__init__(parent)
-        self.login_id = 1
+        # self.login_id = 1
         self.setupUi(self)
 
         self.connect_buttons()
@@ -46,14 +46,16 @@ class Login(QtWidgets.QMainWindow, Ui_Login_Window):
                 cursor.execute(comando_SQL)
                 dados_lidos = cursor.fetchall()
 
+
         for i in range(len(dados_lidos)):
             self.login_id = dados_lidos[i]['id']
             self.nome = dados_lidos[i]['master_username']
             self.senha = dados_lidos[i]['master_password']
 
+
             if self.password == self.senha and self.username == self.nome:
                 from forms.menu import Menu
-                self.window = Menu()
+                self.window = Menu(login=self)
                 self.hide()
                 self.window.show()
                 break

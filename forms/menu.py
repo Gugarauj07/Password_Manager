@@ -4,19 +4,22 @@ from conecta import *
 
 
 class Menu(QtWidgets.QMainWindow, Ui_menu_window):
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, login=None):
         super(Menu, self).__init__(parent)
         self.setupUi(self)
         self.connect_buttons()
         self.visualizar()
+        from forms.login import Login
+        self.login = login
+
 
     def connect_buttons(self):
         self.addButton.clicked.connect(self.adicionar)
         self.generateButton.clicked.connect(self.generate)
 
     def adicionar(self):
-        from forms.login import Login
-        self.login = Login()
+
+
         self.website = self.lineEdit.text()
         self.email = self.lineEdit_2.text()
         self.password = self.lineEdit_3.text()
