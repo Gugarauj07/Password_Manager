@@ -1,8 +1,11 @@
 # Password_Manager
 
 ToDo list:
+
 -Encrypt the passwords
+
 -Make the design better
+
 
 Login Window
 
